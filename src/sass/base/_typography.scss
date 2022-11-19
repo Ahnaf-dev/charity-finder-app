@@ -1,0 +1,37 @@
+@use "sass:math";
+@use "../utils/variables" as *;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans&display=swap");
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headingFont;
+  color: black;
+}
+
+p,
+span,
+a,
+input {
+  font-family: $bodyFont;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+// font sizes
+.text--lg {
+  font-size: 3.981rem;
+}
+
+.text--md {
+  font-size: 3.318rem;
+}
+
+.text--sm {
+  font-size: 2.23rem;
+}
