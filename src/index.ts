@@ -2,16 +2,19 @@ import globalGivingAPI from "./api/apiConfig";
 import "./sass/style.scss";
 import home from "./pages/home";
 import header from "./components/header";
+import charity from "./pages/charity";
 import utils from "./utilities/utils";
-const routes = {
+const routes: any = {
   "/": home,
-  "/charity": 1,
+  "/charity": charity,
   "/charity/:id": 1,
 };
 const page = routes["/"];
 
 function changePageBasedOnRoute() {
-  console.log(location.hash);
+  utils.renderHTML(".header", header);
+  let url = utils.parseURLFromHash(location.hash);
+  console.log(routes[url]);
 }
 
 window.addEventListener("hashchange", changePageBasedOnRoute);

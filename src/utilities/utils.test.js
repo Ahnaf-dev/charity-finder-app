@@ -7,4 +7,10 @@ describe("parseURLFromHash", () => {
       expect(utils.parseURLFromHash("#/charity")).toBe("/charity");
     });
   });
+
+  describe("when not given a single resource", () => {
+    it('should return the correct format: "#/" to "/"', () => {
+      expect(utils.parseURLFromHash("#/")).toBe("/");
+    });
+  });
 });

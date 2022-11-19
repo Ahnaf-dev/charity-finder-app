@@ -11,7 +11,7 @@ const utils = {
   parseURLFromHash: (hash: string) => {
     let splitHash = hash.split("/");
     let resource = splitHash[1];
-    let url = resource ? "/" + resource : "";
+    let url = resource ? "/" + resource : "/";
 
     return url;
   },
