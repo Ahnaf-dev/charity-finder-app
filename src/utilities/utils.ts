@@ -8,11 +8,16 @@ const utils = {
     $(targetSelector).html(component.generateHTML());
     component.afterRender();
   },
-  parseURLFromHash: (hash: string) => {},
+  parseURLFromHash: (hash: string) => {
+    let splitHash = hash.split("/");
+    let resource = splitHash[1];
+    let url = resource ? "/" + resource : "";
+
+    return url;
+  },
 };
 
 export default utils;
-
 // {
 //   generateHTML: () => string;
 //   afterRender: () => void;

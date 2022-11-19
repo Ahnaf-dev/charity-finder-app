@@ -11,7 +11,7 @@ const routes = {
 const page = routes["/"];
 
 function changePageBasedOnRoute() {
-  console.log(location);
+  console.log(location.hash);
 }
 
 window.addEventListener("hashchange", changePageBasedOnRoute);
