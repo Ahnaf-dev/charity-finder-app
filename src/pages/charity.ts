@@ -16,14 +16,18 @@ async function returnOganizations() {
 const charity = {
   generateHTML: async () => {
     let orgs = await returnOganizations();
-    console.log(orgs);
+    // console.log(orgs);
     const html = `
-    <h1>Charity Component</h1>
-    ${orgs
-      .map((org: any) => {
-        return charityCard.generateHTML(org);
-      })
-      .join("")}
+    <h2 class="charity__heading text--lg">Charities</h2>
+    <div class="container">
+      <div class="grid">
+        ${orgs
+          .map((org: any) => {
+            return charityCard.generateHTML(org);
+          })
+          .join("")}
+       </div>
+    </div>
     `;
 
     return html;
