@@ -11,14 +11,14 @@ const routes: any = {
 };
 const homePage = routes["/"];
 
-function changePageBasedOnRoute() {
+async function changePageBasedOnRoute() {
   let url = utils.parseURLFromHash(location.hash);
   let notHome = url !== "/";
 
   if (notHome) {
     resetPage();
-    utils.renderHTML("header", header);
-    utils.renderHTML("#content__entry", routes[url]);
+    await utils.renderHTML("header", header);
+    await utils.renderHTML("#content__entry", routes[url]);
   } else {
     homePage.generateHTML();
   }
@@ -26,18 +26,7 @@ function changePageBasedOnRoute() {
 
 window.addEventListener("hashchange", changePageBasedOnRoute);
 
-$(window).on("load", function () {
-  // default page = home / splash landing page
-  homePage.generateHTML();
-
-  // $.ajax({
-  //   method: "get",
-  //   url: globalGivingAPI.organization(),
-  //   dataType: "JSON",
-  // }).done((data) => {
-  //   console.log(data);
-  // });
-});
+$(window).on("load", changePageBasedOnRoute);
 
 function resetPage() {
   $("body").html(` 

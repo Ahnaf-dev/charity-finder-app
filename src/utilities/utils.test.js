@@ -14,3 +14,11 @@ describe("parseURLFromHash", () => {
     });
   });
 });
+
+describe("minString", () => {
+  describe("when string with maxLength is given", () => {
+    it('it should stop at max length and add ... ex: ("hollow", 5) -> "hollo..."', () => {
+      expect(utils.minString("hollow", 5)).toBe("hollo...");
+    });
+  });
+});

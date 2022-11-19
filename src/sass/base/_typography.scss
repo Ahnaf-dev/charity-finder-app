@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  opacity: 0.8;
+}
+
 // font sizes
 .text--lg {
   font-size: 3.981rem;
@@ -34,4 +38,8 @@ a {
 
 .text--sm {
   font-size: 2.23rem;
+}
+
+.text--bd {
+  font-weight: 700;
 }
