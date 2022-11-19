@@ -1,7 +1,14 @@
+import pray from "../assets/images/pray.svg";
+
 const header = {
   generateHTML: () => {
     const html = `
-    <header>Hello World</header>
+    <div class="header">
+      <div class="header__container container">
+        <h1 class="text--md">Charity Finder</h1>
+        <img src="${pray}" alt="icon with prayer hands"/>
+      </div>
+    </div>
     `;
     return html;
   },

@@ -8,6 +8,7 @@ const utils = {
     $(targetSelector).html(component.generateHTML());
     component.afterRender();
   },
+  parseURLFromHash: (hash: string) => {},
 };
 
 export default utils;
