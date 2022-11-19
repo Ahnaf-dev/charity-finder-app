@@ -9,19 +9,26 @@ const routes: any = {
   "/charity": charity,
   "/charity/:id": 1,
 };
-const page = routes["/"];
+const homePage = routes["/"];
 
 function changePageBasedOnRoute() {
-  utils.renderHTML(".header", header);
   let url = utils.parseURLFromHash(location.hash);
-  console.log(routes[url]);
+  let notHome = url !== "/";
+
+  if (notHome) {
+    resetPage();
+    utils.renderHTML("header", header);
+    utils.renderHTML("#content__entry", routes[url]);
+  } else {
+    homePage.generateHTML();
+  }
 }
 
 window.addEventListener("hashchange", changePageBasedOnRoute);
 
 $(window).on("load", function () {
   // default page = home / splash landing page
-  page.generateHTML();
+  homePage.generateHTML();
 
   // $.ajax({
   //   method: "get",
@@ -31,3 +38,13 @@ $(window).on("load", function () {
   //   console.log(data);
   // });
 });
+
+function resetPage() {
+  $("body").html(` 
+  <header></header>
+  <section id="content__entry">
+    <p class="loading">Loading...</p>
+  </section>
+  <footer id="footer__container"></footer>
+  `);
+}
