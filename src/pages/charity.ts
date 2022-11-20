@@ -89,12 +89,19 @@ const charity = {
     // filter logic -------------
     // filling out filter state ex: {searchTerm: 'dwa', countries: 'ca'}
     const searchInput = $(".search__bar");
+    const selectCountry = $(".search__country");
 
     searchInput.on("keyup", () => {
       let inputResults: any = searchInput.val();
       state.filterOptions.searchTerm = inputResults;
       filterCharityGrid();
-      console.log(state.charities.orgs);
+      // console.log(state.charities.orgs);
+    });
+
+    selectCountry.on("change", () => {
+      let inputResults: any = selectCountry.val();
+      state.filterOptions.countries = inputResults;
+      filterCharityGrid();
     });
   },
 };

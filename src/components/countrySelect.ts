@@ -4,6 +4,7 @@ const countrySelect = {
     <label class="sr-only" for="country">Select Charity Country</label>     
             <select id="country" name="country" class="search__country">
                 <option value="">Find By Charity Country</option>
+                <option value="">None</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
