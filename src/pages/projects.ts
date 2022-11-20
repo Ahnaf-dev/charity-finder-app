@@ -11,7 +11,6 @@ const state: {
 async function fetchProjectsAndSaveToState(charityID: string) {
   const res = await globalGivingAPI.fetchProjectsByAjax(charityID);
   state.projects = res.projects.project;
-  // console.log(state.projects);
 }
 
 const charityProjects = {
