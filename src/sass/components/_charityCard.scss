@@ -9,6 +9,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  max-width: 60rem;
 
   &__active-logo {
     position: absolute;

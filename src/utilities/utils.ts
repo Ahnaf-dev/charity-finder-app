@@ -3,7 +3,7 @@ interface component {
   afterRender: () => void;
 }
 
-interface filterOptions {
+export interface filterOptions {
   searchTerm: string;
   countries: string;
   servedCountries: string;

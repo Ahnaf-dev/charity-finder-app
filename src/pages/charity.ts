@@ -1,6 +1,7 @@
 import globalGivingAPI from "../api/apiConfig";
 import charityCard from "../components/charityCard";
 import searchBar from "../components/searchBar";
+import utils, { filterOptions } from "../utilities/utils";
 
 interface apiState {
   hasNext: boolean;
@@ -10,11 +11,17 @@ interface apiState {
 
 let state: {
   charities: apiState;
+  filterOptions: filterOptions;
 } = {
   charities: {
     hasNext: false,
     nextOrgId: null,
     orgs: [],
+  },
+  filterOptions: {
+    searchTerm: "",
+    countries: "",
+    servedCountries: "",
   },
 };
 
@@ -74,7 +81,31 @@ const charity = {
         loadMoreBTN.prop("disabled", true);
       }
     });
+
+    // filter logic -------------
+    // filling out filter state ex: {searchTerm: 'dwa', countries: 'ca'}
+    const searchInput = $(".search__bar");
+
+    searchInput.on("keyup", () => {
+      let inputResults: any = searchInput.val();
+      state.filterOptions.searchTerm = inputResults;
+      filterCharityGrid();
+    });
   },
 };
+
+function filterCharityGrid() {
+  let filteredArr = utils.cloneArrayAndFilter(
+    state.charities.orgs,
+    state.filterOptions
+  );
+  $(".grid").html(`
+      ${filteredArr
+        .map((org: any) => {
+          return charityCard.generateHTML(org);
+        })
+        .join("")}
+  `);
+}
 
 export default charity;

@@ -1,7 +1,11 @@
 import utils from "../utilities/utils";
 
+const state = {
+  searchTerm: "",
+};
+
 const searchBar = {
-  generateHTML: (filterFunc: any = null) => {
+  generateHTML: () => {
     const html = `
     <label class="sr-only" for="search">Search by charity name</label>
     <span class="search__logo material-icons">
