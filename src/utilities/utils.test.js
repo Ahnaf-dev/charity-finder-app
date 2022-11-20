@@ -27,3 +27,12 @@ describe("minString", () => {
     });
   });
 });
+
+describe("cloneArrayAndFilter", () => {
+  describe("when an array argument is given", () => {
+    it("should not equal to cloned array", () => {
+      const b = [1, 2, 5];
+      expect(utils.cloneArrayAndFilter(b)).not.toEqual(b);
+    });
+  });
+});

@@ -1,5 +1,6 @@
 import globalGivingAPI from "../api/apiConfig";
 import charityCard from "../components/charityCard";
+import searchBar from "../components/searchBar";
 
 interface apiState {
   hasNext: boolean;
@@ -38,6 +39,11 @@ const charity = {
     const html = `
     <h2 class="charity__heading text--lg">Charities</h2>
     <div class="container">
+    <div class="charity__filter-area">
+      <div class="charity__search">
+        ${searchBar.generateHTML()}
+      </div>
+    </div>
       <div class="grid">
         ${state.charities.orgs
           .map((org: any) => {

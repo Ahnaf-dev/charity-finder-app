@@ -1,0 +1,18 @@
+@use "../utils/variables" as *;
+
+input.search__bar {
+  padding: 1rem 4rem;
+  max-width: 30rem;
+  width: 100%;
+  border-radius: $borderRadius;
+  outline: none;
+  font-size: 2rem;
+}
+
+.search__logo {
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.7rem;
+}
