@@ -31,8 +31,22 @@ describe("minString", () => {
 describe("cloneArrayAndFilter", () => {
   describe("when an array argument is given", () => {
     it("should not equal to cloned array", () => {
-      const b = [1, 2, 5];
-      expect(utils.cloneArrayAndFilter(b)).not.toEqual(b);
+      const arr = [1, 2, 5];
+      expect(utils.cloneArrayAndFilter(arr)).not.toBe(arr);
+    });
+
+    it("should filter object by search term", () => {
+      const filterOptions = {
+        searchTerm: "he",
+        countries: "",
+        servedCountries: "",
+      };
+      const arr = [{ name: "he" }, { name: "canada" }, { name: "Hel" }];
+
+      expect(utils.cloneArrayAndFilter(arr, filterOptions)).toEqual([
+        { name: "he" },
+        { name: "Hel" },
+      ]);
     });
   });
 });
