@@ -1,9 +1,3 @@
-import utils from "../utilities/utils";
-
-const state = {
-  searchTerm: "",
-};
-
 const searchBar = {
   generateHTML: () => {
     const html = `

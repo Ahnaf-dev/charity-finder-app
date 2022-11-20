@@ -45,6 +45,11 @@ const utils = {
         clonedArray = clonedArray.filter((obj) => obj.name.match(regex));
       }
 
+      if (filterOptions.countries) {
+        const regex = new RegExp(filterOptions.countries, "gi");
+        clonedArray = clonedArray.filter((obj) => obj.country.match(regex));
+      }
+
       return clonedArray;
     } else {
       return clonedArray;

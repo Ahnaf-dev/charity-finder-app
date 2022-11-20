@@ -48,5 +48,22 @@ describe("cloneArrayAndFilter", () => {
         { name: "Hel" },
       ]);
     });
+
+    it("should filter object by both search term and country", () => {
+      const filterOptions = {
+        searchTerm: "he",
+        countries: "usa",
+        servedCountries: "",
+      };
+      const arr = [
+        { name: "he", country: "USA" },
+        { name: "canada", country: "CA" },
+        { name: "Hel", country: "RED" },
+      ];
+
+      expect(utils.cloneArrayAndFilter(arr, filterOptions)).toEqual([
+        { name: "he", country: "USA" },
+      ]);
+    });
   });
 });

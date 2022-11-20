@@ -1,6 +1,7 @@
 import globalGivingAPI from "../api/apiConfig";
 import charityCard from "../components/charityCard";
 import searchBar from "../components/searchBar";
+import countrySelect from "../components/countrySelect";
 import utils, { filterOptions } from "../utilities/utils";
 
 interface apiState {
@@ -50,6 +51,9 @@ const charity = {
       <div class="charity__search">
         ${searchBar.generateHTML()}
       </div>
+      <div class="charity__search--country">
+        ${countrySelect.generateHTML()}
+      </div>
     </div>
       <div class="grid">
         ${state.charities.orgs
@@ -90,6 +94,7 @@ const charity = {
       let inputResults: any = searchInput.val();
       state.filterOptions.searchTerm = inputResults;
       filterCharityGrid();
+      console.log(state.charities.orgs);
     });
   },
 };
@@ -100,11 +105,11 @@ function filterCharityGrid() {
     state.filterOptions
   );
   $(".grid").html(`
-      ${filteredArr
-        .map((org: any) => {
-          return charityCard.generateHTML(org);
-        })
-        .join("")}
+    ${filteredArr
+      .map((org: any) => {
+        return charityCard.generateHTML(org);
+      })
+      .join("")}
   `);
 }
 
