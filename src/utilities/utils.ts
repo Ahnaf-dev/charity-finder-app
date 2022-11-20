@@ -15,7 +15,13 @@ const utils = {
     return url;
   },
   minString: (str: string, maxLength: number) => {
-    return str.substring(0, maxLength) + "...";
+    const cantConcat = str.length < maxLength;
+
+    if (cantConcat) {
+      return str;
+    } else {
+      return str.substring(0, maxLength) + "...";
+    }
   },
 };
 

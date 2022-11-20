@@ -32,8 +32,8 @@ function setCharityState(charityProp: apiState) {
 }
 
 const charity = {
-  generateHTML: async (nextID: string = "") => {
-    await fetchAndSetCharityState(nextID);
+  generateHTML: async (loadMoreID: string = "") => {
+    await fetchAndSetCharityState(loadMoreID);
 
     const html = `
     <h2 class="charity__heading text--lg">Charities</h2>
@@ -49,12 +49,13 @@ const charity = {
     </div>
     `;
     // only runs when load more button is clicked
-    if (nextID) {
+    if (loadMoreID) {
       $("#content__entry").html(html);
       charity.afterRender();
       return;
+    } else {
+      return html;
     }
-    return html;
   },
   afterRender: () => {
     const loadMoreBTN = $(".load-more-charity");

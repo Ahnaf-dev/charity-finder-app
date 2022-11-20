@@ -21,4 +21,9 @@ describe("minString", () => {
       expect(utils.minString("hollow", 5)).toBe("hollo...");
     });
   });
+  describe("when string is shorter than maxLength", () => {
+    it("should only return the string without adding ...", () => {
+      expect(utils.minString("he", 5)).toBe("he");
+    });
+  });
 });
