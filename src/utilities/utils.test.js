@@ -1,4 +1,3 @@
-// const utils = require("./utils");
 import utils from "./utils";
 
 describe("parseURLFromHash", () => {
@@ -11,6 +10,12 @@ describe("parseURLFromHash", () => {
   describe("when not given a single resource", () => {
     it('should return the correct format: "#/" to "/"', () => {
       expect(utils.parseURLFromHash("#/")).toBe("/");
+    });
+  });
+
+  describe("when given a resource with an id", () => {
+    it('should return the correct format: "#/charity/5" to "/charity/5"', () => {
+      expect(utils.parseURLFromHash("#/charity/5")).toBe("/charity/5");
     });
   });
 });

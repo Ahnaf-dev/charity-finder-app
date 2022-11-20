@@ -6,9 +6,11 @@ const charityCard = {
     const html = `
     <div class="card">
     <div class="card__header">
-      <div class="card__logo">
+      <a aria-label="visit ${card.name} site" href=${
+      card.url
+    } target="_blank" class="card__logo">
         <img src='${card.logoUrl}' alt='${card.name} logo' />
-      </div>
+      </a>
       <div class="card__info">
         <h1 class="card__title text--sm text--bd">
           ${card.name}
@@ -28,7 +30,7 @@ const charityCard = {
       ${utils.minString(card.mission, 300)}
       </p>
     </div>
-    <a href="#" class="btn btn--main">View Projects
+    <a href="/#/charity/${card.id}" class="btn btn--main">View Projects
       <img class="card__active-logo" src=${pray}/>
     </a>
   </div>

@@ -95,7 +95,7 @@ const charity = {
       let inputResults: any = searchInput.val();
       state.filterOptions.searchTerm = inputResults;
       filterCharityGrid();
-      // console.log(state.charities.orgs);
+      console.log(state.charities.orgs);
     });
 
     selectCountry.on("change", () => {

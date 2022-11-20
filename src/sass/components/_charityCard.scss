@@ -11,6 +11,15 @@
   overflow: hidden;
   max-width: 60rem;
 
+  &__logo {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 20px 0px $accent;
+      transform: scale(1.1);
+    }
+  }
+
   &__active-logo {
     position: absolute;
     left: 50%;
