@@ -14,11 +14,16 @@ const utils = {
     $(targetSelector).html(await component.generateHTML());
     await component.afterRender();
   },
-  parseURLFromHash: (hash: string) => {
+  parseURLFromHash: (hash: string, requestID: boolean = false) => {
     let splitHash = hash.split("/");
     let resource = splitHash[1];
     let id = splitHash[2];
-    let url = (resource ? "/" + resource : "/") + (id ? "/" + id : "");
+    let url = (resource ? "/" + resource : "/") + (id ? "/:id" : "");
+
+    if (requestID) {
+      return id;
+    }
+
     return url;
   },
   minString: (str: string, maxLength: number) => {

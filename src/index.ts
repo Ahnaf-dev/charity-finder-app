@@ -2,19 +2,19 @@ import globalGivingAPI from "./api/apiConfig";
 import "./sass/style.scss";
 import home from "./pages/home";
 import header from "./components/header";
+import charityProjects from "./pages/projects";
 import charity from "./pages/charity";
 import utils from "./utilities/utils";
 const routes: any = {
   "/": home,
   "/charity": charity,
-  "/charity/:id": 1,
+  "/charity/:id": charityProjects,
 };
 const homePage = routes["/"];
 
 async function changePageBasedOnRoute() {
   let url = utils.parseURLFromHash(location.hash);
   let notHome = url !== "/";
-
   if (notHome) {
     resetPage();
     await utils.renderHTML("header", header);
