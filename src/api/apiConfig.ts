@@ -22,6 +22,13 @@ const globalGivingAPI = {
       dataType: "JSON",
     });
   },
-  projectsByCountry: `${apiConfig.base_url}/projectservice/organizations/15/projects/active?api_key=${apiConfig.api_key}`,
+  fetchProjectsByAjax: (orgID: string = "") => {
+    let url = `${apiConfig.base_url}/projectservice/organizations/${orgID}/projects/active?api_key=${apiConfig.api_key}`;
+    return $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "JSON",
+    });
+  },
 };
 export default globalGivingAPI;

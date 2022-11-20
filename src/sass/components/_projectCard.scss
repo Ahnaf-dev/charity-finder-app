@@ -1,0 +1,106 @@
+@use "../utils/variables" as *;
+@use "../utils/breakpoints" as *;
+
+.charity-project {
+  &__card {
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.7);
+
+    @include tablet {
+      margin-top: 10rem;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 3rem;
+    background-color: $accent;
+    padding: 1rem;
+
+    h3 {
+      color: white;
+    }
+
+    @include tablet {
+      position: absolute;
+      top: -50px;
+      margin-bottom: 0px;
+      left: 0;
+    }
+  }
+
+  &__header {
+    @include desktop {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    margin-bottom: 3rem;
+    max-height: 50rem;
+  }
+
+  &__summary {
+    margin-bottom: 3rem;
+  }
+
+  &__funding {
+    margin-bottom: 3rem;
+  }
+
+  &__progress {
+    border: 2px solid $accent;
+    padding: 2rem;
+    margin-top: 1rem;
+    position: relative;
+    span.progress-display {
+      z-index: 10;
+      color: rgb(0, 0, 0);
+      font-size: 2.5rem;
+      opacity: 1;
+      font-weight: 700;
+    }
+
+    span.fill-progress {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-color: $accent;
+    }
+  }
+
+  &__body {
+    p ~ p {
+      margin-top: 3rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 3rem;
+    gap: 3rem;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      max-width: none;
+
+      &--main {
+        &:hover {
+          border: 1px solid $accent;
+        }
+      }
+    }
+  }
+}
