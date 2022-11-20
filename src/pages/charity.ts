@@ -6,10 +6,10 @@ interface apiState {
   nextOrgId: string | undefined | null;
   orgs: any[];
 }
-interface state {
+
+let state: {
   charities: apiState;
-}
-let state: state = {
+} = {
   charities: {
     hasNext: false,
     nextOrgId: null,
@@ -17,20 +17,10 @@ let state: state = {
   },
 };
 
-function getOrganizations(id: string = "") {
-  return $.ajax({
-    url: globalGivingAPI.organization(id),
-    method: "GET",
-    dataType: "JSON",
-  });
-}
-
-async function returnOganizations(id: string = "") {
-  const res = await getOrganizations(id);
+async function fetchAndSetCharityState(nextID: string = "") {
+  const res = await globalGivingAPI.fetchOrgsByAjax(nextID);
   const { hasNext, nextOrgId, organization } = res.organizations;
   setCharityState({ hasNext, nextOrgId, orgs: organization });
-
-  return res.organizations.organization;
 }
 
 function setCharityState(charityProp: apiState) {
@@ -42,8 +32,8 @@ function setCharityState(charityProp: apiState) {
 }
 
 const charity = {
-  generateHTML: async (id: string = "") => {
-    await returnOganizations(id);
+  generateHTML: async (nextID: string = "") => {
+    await fetchAndSetCharityState(nextID);
 
     const html = `
     <h2 class="charity__heading text--lg">Charities</h2>
@@ -58,8 +48,8 @@ const charity = {
        <button class="btn btn--main load-more-charity">Load More</button>
     </div>
     `;
-
-    if (id) {
+    // only runs when load more button is clicked
+    if (nextID) {
       $("#content__entry").html(html);
       charity.afterRender();
       return;
@@ -67,11 +57,14 @@ const charity = {
     return html;
   },
   afterRender: () => {
-    $(".load-more-charity").on("click", async () => {
-      if (state.charities.hasNext) {
+    const loadMoreBTN = $(".load-more-charity");
+
+    loadMoreBTN.on("click", async () => {
+      let hasMoreToLoad = state.charities.hasNext;
+      if (hasMoreToLoad) {
         await charity.generateHTML(state.charities.nextOrgId);
       } else {
-        $(".load-more-charity").prop("disabled", true);
+        loadMoreBTN.prop("disabled", true);
       }
     });
   },

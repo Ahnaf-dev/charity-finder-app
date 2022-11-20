@@ -8,12 +8,19 @@ const apiConfig: apiConfig = {
 };
 
 const globalGivingAPI = {
-  organization: (nextID: string = "") => {
+  organizationURL: (nextID: string = "") => {
     return `${
       apiConfig.base_url
     }/orgservice/all/organizations/active/?api_key=${apiConfig.api_key}${
       nextID ? `&nextOrgId=${nextID}` : ""
     }`;
+  },
+  fetchOrgsByAjax: (nextID: string = "") => {
+    return $.ajax({
+      url: globalGivingAPI.organizationURL(nextID),
+      method: "GET",
+      dataType: "JSON",
+    });
   },
   projectsByCountry: `${apiConfig.base_url}/projectservice/organizations/15/projects/active?api_key=${apiConfig.api_key}`,
 };
