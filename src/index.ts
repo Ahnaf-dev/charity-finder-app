@@ -32,6 +32,7 @@ function resetPage() {
   $("body").html(` 
   <header></header>
   <section id="content__entry">
+  <p class="loading">Loading...</p>
   </section>
   <footer id="footer__container"></footer>
   `);
