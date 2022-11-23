@@ -14,8 +14,8 @@ describe("parseURLFromHash", () => {
   });
 
   describe("when given a resource with an id", () => {
-    it('should return the correct format: "#/charity/5" to "/charity/5"', () => {
-      expect(utils.parseURLFromHash("#/charity/5")).toBe("/charity/5");
+    it('should return the correct format: "#/charity/5" to "/charity/:id"', () => {
+      expect(utils.parseURLFromHash("#/charity/5")).toBe("/charity/:id");
     });
   });
 });
