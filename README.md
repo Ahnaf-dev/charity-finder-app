@@ -13,6 +13,7 @@ A simple charity finder app that allows you to find active charities and view th
 * **Build Tools**: Webpack, Babel, Gulp, NPM
 * **Clean Code**: Clear Variable Names, Reusable Logic (DRY), One Function One Action, Simple Code, Clean Folder Structure
 * **Performance**: Single Page Application Router, Minified Images
+* **CI/CD**: GitHub Actions
 
 ## Features
 
@@ -20,6 +21,7 @@ A simple charity finder app that allows you to find active charities and view th
 
 *  Created single page app router using `Locations API` and `ES6 JavaScript` logic. Components will render into the `DOM`depending on the URL.
 *  Unit tested over 4 functions using `Jest` to ensure they work properly and applied `BDD` (red, green, refactor) concepts.
+*  Continuous Integration (CI) with GitHub Actions by running Jest tests on push.
 *  Fetched GlobalGivings API using `Ajax` and incorporated the returned `JSON` data into `semantic HTML` tags to be styled by `SASS`.
 *  Simple local `state management` using objects.
 *  Created load more functionality by interacting with API and recursively doing function calls to add returned state to previous state until API runs out of pages.
