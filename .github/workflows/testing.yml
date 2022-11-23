@@ -9,6 +9,6 @@ jobs:
         with:
           node-version: 16
       - name: Install modules
-        run: npm ci
+        run: npm install
       - name: Run tests
         run: npm test
