@@ -32,6 +32,7 @@ A simple charity finder app that allows you to find active charities and view th
 * Clean project structure to increase project `maintainability` and `scalability`.
 * Utilized `JQuery` to write less and `simple` code for `manipulating the DOM`.
 * Styled with `SASS` using variables, mixins and partials.
+* Predictable variable, input and output values using TypeScript
 
 ### User Features
 
