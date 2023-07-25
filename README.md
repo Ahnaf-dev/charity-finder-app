@@ -31,7 +31,7 @@ A simple charity finder app that allows you to find active charities and view th
 *  Wrote clean code by giving `clear variable names`, following `DRY` principles for code `reusability`, one action per function, `simplifying` code and commenting where needed.
 * Clean project structure to increase project `maintainability` and `scalability`.
 * Utilized `JQuery` to write less and `simple` code for `manipulating the DOM`.
-* Styled with `SASS` using variables, mixins and partials.
+* Styled with `SASS` using variables, mixins and partials to streamline and simplify CSS development processes.
 * Predictable variable, input and output values using TypeScript
 
 ### User Features
